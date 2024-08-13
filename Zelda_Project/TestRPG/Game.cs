@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestRPG.Monsters;
 using TestRPG.Players;
 using TestRPG.Scenes;
 
@@ -14,6 +15,7 @@ namespace TestRPG
 
         private Scene[] scenes;
         private Scene curScene;
+        private Scene prevScene;
         public Scene CurScene { get { return curScene; } }
 
         private Player player;
@@ -35,6 +37,22 @@ namespace TestRPG
         {
             curScene.Exit();
             curScene = scenes[(int)sceneType];
+            curScene.Enter();
+        }
+        public void ReturnScene()
+        {
+            curScene.Exit();
+            curScene = prevScene;
+            curScene.Enter();
+        }
+
+        public void StartBattle(Monster monster)
+        {
+            prevScene = curScene;
+            curScene.Exit();
+            curScene = scenes[(int)SceneType.Battle];
+            BattleScene battleScene = (BattleScene)curScene;
+            battleScene.SetBattle(player, monster);
             curScene.Enter();
         }
 

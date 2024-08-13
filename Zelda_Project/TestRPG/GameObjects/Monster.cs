@@ -22,7 +22,7 @@ namespace TestRPG.Monsters
 
         public override void Interaction(Player player)
         {
-            
+            game.StartBattle(this);
         }
     }
 }

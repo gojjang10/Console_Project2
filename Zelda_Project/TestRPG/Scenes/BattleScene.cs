@@ -4,15 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestRPG.Monsters;
+using TestRPG.Players;
 
 namespace TestRPG.Scenes
 {
     public class BattleScene : Scene
     {
         private Monster monster;
+        private Player player;
+
 
         public BattleScene(Game game) : base(game)
         {
+        }
+        public void SetBattle(Player player, Monster monster)
+        {
+            this.player = player;
+            this.monster = monster;
         }
 
         public override void Enter()
