@@ -29,19 +29,46 @@ namespace TestRPG.Scenes
 
         public override void Render()
         {
-            Console.Clear();
-            Console.WriteLine("====================================");
-            Console.WriteLine("=                                  =");
-            Console.WriteLine("=           레전드 RPG             =");
-            Console.WriteLine("=                                  =");
-            Console.WriteLine("====================================");
-            Console.WriteLine();
-            Console.WriteLine("    계속하려면 아무키나 누르세요    ");
+            Console.CursorVisible = false; //커서는 안보이게
+            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("                                               *                                          ");
+            Console.WriteLine("                                              ***                                         ");
+            Console.WriteLine("                                             *****                                        ");
+            Console.WriteLine("                                            *******                                       ");
+            Console.WriteLine("                                           *********                                      ");
+            Console.WriteLine("                                          ***********                                     ");
+            Console.WriteLine("                                         *************                                    ");
+            Console.WriteLine("                                        ***************                                   ");
+            Console.WriteLine("                                       *               *                                  ");
+            Console.WriteLine("                                      ***             ***                                 ");
+            Console.WriteLine("                                     *****           *****                                ");
+            Console.WriteLine("                                    *******         *******                               ");
+            Console.WriteLine("                                   *********       *********                              ");
+            Console.WriteLine("                                  ***********     ***********                             ");
+            Console.WriteLine("                                 *************   *************                            ");
+            Console.WriteLine("                                *******************************                           ");
+            Console.WriteLine("                                                                                          ");
+            Console.WriteLine("                                                                                          ");
+            Console.WriteLine("                                      The Legend Of Zelda                                 ");
+            Console.WriteLine("                                                                                          ");
+            Console.WriteLine("                                                                                          ");
+            Console.WriteLine("==========================================================================================");
+
+            Console.WriteLine("Please any key");
         }
 
         public override void Update()
         {
-            game.ChangeScene(SceneType.Select);
+            Console.Clear(); // 콘솔 창 정리
+
+            Console.WriteLine("링크...");
+            Thread.Sleep(1000);
+            Console.WriteLine("눈을 뜨세요........ ");
+            Thread.Sleep(1000);
+            Console.WriteLine("가논을 쓰러트리고 하이랄을 되찾아 주세요........");
+            Thread.Sleep(2000);
+
+            game.ChangeScene(SceneType.Village);
         }
     }
 }

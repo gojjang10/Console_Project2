@@ -28,6 +28,7 @@ namespace TestRPG.Players
 
         public abstract void Skill(Monster monster);
 
+
         public void ShowInfo()
         {
             Console.SetCursorPosition(0, 20);

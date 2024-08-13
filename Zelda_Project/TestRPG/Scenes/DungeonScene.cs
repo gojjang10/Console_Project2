@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestRPG.GameObjects;
 
 namespace TestRPG.Scenes
 {
@@ -10,15 +12,12 @@ namespace TestRPG.Scenes
     {
         public DungeonScene (Game game) : base(game)
         {
+ 
         }
 
         public override void Enter()
         {
-            // TODO : 인벤토리 설정
 
-            Console.Clear();
-            Console.WriteLine("인벤토리를 엽니다...");
-            Thread.Sleep(1000);
         }
 
         public override void Exit()
@@ -28,19 +27,17 @@ namespace TestRPG.Scenes
 
         public override void Input()
         {
-            // TODO : 인벤토리 입력
+
         }
 
         public override void Render()
         {
-            // TODO : 인벤토리 상황 출력
+
         }
 
         public override void Update()
         {
-            // TODO : 인벤토리 처리
 
-            game.ChangeScene(SceneType.Village);
         }
     }
 }
