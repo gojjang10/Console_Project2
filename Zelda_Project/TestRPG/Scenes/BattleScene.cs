@@ -45,8 +45,8 @@ namespace TestRPG.Scenes
         {
             // TODO : 전투 상황 출력
             Console.Clear();
-                            Console.WriteLine($"현재 {monster.name}의 HP : {monster.hp}");
             Console.WriteLine($"현재 링크의 HP : {player.CurHP}");
+            Console.WriteLine($"현재 {monster.name}의 HP : {monster.hp}");
 
             Console.WriteLine("\n행동을 고르세요");
             Console.WriteLine("\n1. 공격\n2. 방어(성공 시 HP회복)");
@@ -71,6 +71,7 @@ namespace TestRPG.Scenes
                 {
                     monster.hp -= player.Attack;
                     Console.WriteLine("공격에 성공하였습니다.");
+                    Thread.Sleep(1000);
                     
                     if (monster.hp <= 0)
                     {
@@ -82,6 +83,7 @@ namespace TestRPG.Scenes
                 {
                     monster.attack -= player.CurHP;
                     Console.WriteLine("방어에 실패하였습니다.");
+                    Thread.Sleep(1000);
                 }
             }
 

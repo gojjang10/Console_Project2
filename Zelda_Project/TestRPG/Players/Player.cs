@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TestRPG.Players
 {
-    public abstract class Player
+    public class Player
     {
 
         protected int curHP = 100;
@@ -26,8 +26,6 @@ namespace TestRPG.Players
 
         protected int gold;
         public int Gold { get { return gold; } set { gold = value; } }
-
-        public abstract void Skill(Monster monster);
 
 
         public void ShowInfo()

@@ -19,7 +19,7 @@ namespace TestRPG
         private Scene prevScene;
         public Scene CurScene { get { return curScene; } }
 
-        private Player player;
+        private Player player = new Player();
         public Player Player { get { return player; } set { player = value; } }
 
         public void Run()
