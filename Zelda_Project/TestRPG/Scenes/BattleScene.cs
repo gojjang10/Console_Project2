@@ -38,26 +38,54 @@ namespace TestRPG.Scenes
         public override void Input()
         {
             // TODO : 전투 입력
+            input = Console.ReadKey().Key;
         }
 
         public override void Render()
         {
             // TODO : 전투 상황 출력
+            Console.Clear();
+                            Console.WriteLine($"현재 {monster.name}의 HP : {monster.hp}");
+            Console.WriteLine($"현재 링크의 HP : {player.CurHP}");
+
+            Console.WriteLine("\n행동을 고르세요");
+            Console.WriteLine("\n1. 공격\n2. 방어(성공 시 HP회복)");
         }
 
         public override void Update()
         {
-            // TODO : 전투 진행
-
-            bool win = true;    // for debug
-            if (win) // (monster.hp <= 0)
+            bool win = false;    // for debug
+                                 // TODO : 전투 진행
+            if (win)
             {
                 game.ReturnScene();
             }
-            else // if (game.Player.CurHP <= 0)
+            else if (game.Player.CurHP <= 0)
             {
                 game.ChangeScene(SceneType.GameOver);
             }
+
+            if (monster.hp > 0)
+            {
+                if (input == ConsoleKey.D1)
+                {
+                    monster.hp -= player.Attack;
+                    Console.WriteLine("공격에 성공하였습니다.");
+                    
+                    if (monster.hp <= 0)
+                    {
+                        win = true;
+                    }
+                }
+
+                else if (input == ConsoleKey.D2)
+                {
+                    monster.attack -= player.CurHP;
+                    Console.WriteLine("방어에 실패하였습니다.");
+                }
+            }
+
+
 
         }
     }

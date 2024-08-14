@@ -21,7 +21,7 @@ namespace TestRPG.GameObjects
         {
             if(destination == SceneType.Dungeon)
             {
-                if (inventory.IsHaveItem("마스터 소드"))
+                if (game.inventory.IsHaveItem("마스터 소드"))
                 {
                     game.ChangeScene(destination);
                 }

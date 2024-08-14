@@ -8,7 +8,6 @@ namespace TestRPG.Scenes
     public class VillageScene : Scene
     {
         public Player player;
-        public Inventory inventory;
         public VillageScene(Game game) : base(game)
         {
             map = new bool[,]

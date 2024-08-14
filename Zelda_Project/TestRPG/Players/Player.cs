@@ -12,7 +12,7 @@ namespace TestRPG.Players
     public abstract class Player
     {
 
-        protected int curHP;
+        protected int curHP = 100;
         public int CurHP { get { return curHP; } }
 
         protected int maxHP;

@@ -12,6 +12,7 @@ namespace TestRPG
     public class Game
     {
         private bool isRunning;
+        public Inventory inventory = new Inventory();
 
         private Scene[] scenes;
         private Scene curScene;
