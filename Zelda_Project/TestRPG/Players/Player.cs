@@ -11,7 +11,6 @@ namespace TestRPG.Players
 {
     public abstract class Player
     {
-        public bool cant = false;
 
         protected int curHP;
         public int CurHP { get { return curHP; } }
@@ -28,11 +27,6 @@ namespace TestRPG.Players
         protected int gold;
         public int Gold { get { return gold; } set { gold = value; } }
 
-        public void AddItem(Item item)
-        {
-            // 인벤토리에 아이템 추가
-
-        }
         public abstract void Skill(Monster monster);
 
 

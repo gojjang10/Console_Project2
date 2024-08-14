@@ -14,11 +14,13 @@ namespace TestRPG.GameObjects
     {
         public Game game;
         public Scene scene;
+        public Inventory inventory = new Inventory();
 
         public ConsoleColor color;
         public Point pos;
         public char simbol;
         public bool removeWhenInteract;
+ 
 
         public GameObject(Scene scene)
         {

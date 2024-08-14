@@ -12,6 +12,7 @@ namespace TestRPG.GameObjects
     public class Item : GameObject
     {
         public string name;
+ 
 
         public Item(Scene scene) : base(scene)
         {
@@ -57,6 +58,8 @@ namespace TestRPG.GameObjects
                 Thread.Sleep(2000);
                 Console.WriteLine("정진하여라...!\n");
                 Thread.Sleep(3000);
+
+                inventory.AddItem(this);
             }
         }
     }

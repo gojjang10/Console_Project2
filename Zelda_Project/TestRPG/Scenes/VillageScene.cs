@@ -1,12 +1,14 @@
 ﻿using System.Drawing;
 using TestRPG.GameObjects;
 using TestRPG.Players;
+using TestRPG;
 
 namespace TestRPG.Scenes
 {
     public class VillageScene : Scene
     {
         public Player player;
+        public Inventory inventory;
         public VillageScene(Game game) : base(game)
         {
             map = new bool[,]
@@ -69,7 +71,9 @@ namespace TestRPG.Scenes
             Move();
             Interaction();
         }
+
     }
+
 }
 
 

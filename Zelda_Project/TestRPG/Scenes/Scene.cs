@@ -101,7 +101,7 @@ namespace TestRPG.Scenes
             }
         }
 
-        protected void Interaction()
+        protected virtual void Interaction()
         {
             foreach (GameObject gameObject in gameObjects)
             {

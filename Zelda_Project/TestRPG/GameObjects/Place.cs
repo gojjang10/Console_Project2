@@ -21,7 +21,11 @@ namespace TestRPG.GameObjects
         {
             if(destination == SceneType.Dungeon)
             {
-                if (player.cant == false)
+                if (inventory.IsHaveItem("마스터 소드"))
+                {
+                    game.ChangeScene(destination);
+                }
+                else
                 {
                     Console.Clear();
                     Console.Write("위험해보인다. 나를 지킬 수 있는 것을 찾아보자.");
