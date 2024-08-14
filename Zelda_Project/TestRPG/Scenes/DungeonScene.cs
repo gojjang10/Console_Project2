@@ -40,10 +40,11 @@ namespace TestRPG.Scenes
             ganon.name = "가논";
             ganon.color = ConsoleColor.Red;
             ganon.simbol = '◈';
+            ganon.curHp = 100;
             ganon.attack = 30;
             ganon.defense = 20;
             ganon.pos = new Point(6, 6);
-            ganon.removeWhenInteract = true;
+            ganon.removeWhenInteract = false;
 
             gameObjects.Add(ganon);
         }

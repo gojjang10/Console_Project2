@@ -13,12 +13,12 @@ namespace TestRPG.Players
     {
 
         protected int curHP = 100;
-        public int CurHP { get { return curHP; } }
+        public int CurHP { get { return curHP; } set { curHP = value; } }
 
         protected int maxHP;
-        public int MaxHP { get { return maxHP; } }
+        public int MaxHP { get { return maxHP; } set { maxHP = value; } }
 
-        protected int attack;
+        protected int attack = 30;
         public int Attack { get { return attack; } }
 
         protected int defense;

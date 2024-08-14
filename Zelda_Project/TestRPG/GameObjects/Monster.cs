@@ -12,7 +12,9 @@ namespace TestRPG.Monsters
     public class Monster : GameObject
     {
         public string name;
-        public int hp;
+
+        public int curHp;
+        public int maxHp;
         public int attack;
         public int defense;
 

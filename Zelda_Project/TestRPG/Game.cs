@@ -12,6 +12,8 @@ namespace TestRPG
     public class Game
     {
         private bool isRunning;
+        public bool IsRunning { set { isRunning = value; } }
+
         public Inventory inventory = new Inventory();
 
         private Scene[] scenes;
@@ -73,6 +75,7 @@ namespace TestRPG
             scenes[(int)SceneType.Cave] = new CaveScene(this);
             scenes[(int)SceneType.Dungeon] = new DungeonScene(this);
             scenes[(int)SceneType.Battle] = new BattleScene(this);
+            scenes[(int)SceneType.GameOver] = new GameOver(this);
 
             curScene = scenes[(int)SceneType.Title];
             curScene.Enter();

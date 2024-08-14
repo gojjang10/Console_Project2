@@ -52,12 +52,12 @@ namespace TestRPG.GameObjects
                 Console.WriteLine("                                         ");
                 Console.WriteLine("======================================");
                 Console.WriteLine("땅에 꽂혀있는 성검 마스터 소드를 얻었다!");
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
 
                 Console.WriteLine("\n검을 뽑은자여...\n");
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
                 Console.WriteLine("정진하여라...!\n");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
 
                 game.inventory.AddItem(this);
             }

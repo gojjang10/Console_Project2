@@ -66,7 +66,7 @@ namespace TestRPG.Scenes
             Console.WriteLine("눈을 뜨세요........ ");
             Thread.Sleep(1000);
             Console.WriteLine("가논을 쓰러트리고 하이랄을 되찾아 주세요........");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             game.ChangeScene(SceneType.Village);
         }

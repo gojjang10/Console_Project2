@@ -12,7 +12,7 @@ namespace TestRPG.Scenes
     {
         private Monster monster;
         private Player player;
-
+        bool win = false;
 
         public BattleScene(Game game) : base(game)
         {
@@ -21,6 +21,9 @@ namespace TestRPG.Scenes
         {
             this.player = player;
             this.monster = monster;
+
+            this.player.MaxHP = this.player.CurHP;
+            this.monster.maxHp = this.monster.curHp;
         }
 
         public override void Enter()
@@ -39,6 +42,7 @@ namespace TestRPG.Scenes
         {
             // TODO : 전투 입력
             input = Console.ReadKey().Key;
+            Console.Write("\b");
         }
 
         public override void Render()
@@ -46,7 +50,7 @@ namespace TestRPG.Scenes
             // TODO : 전투 상황 출력
             Console.Clear();
             Console.WriteLine($"현재 링크의 HP : {player.CurHP}");
-            Console.WriteLine($"현재 {monster.name}의 HP : {monster.hp}");
+            Console.WriteLine($"현재 {monster.name}의 HP : {monster.curHp}");
 
             Console.WriteLine("\n행동을 고르세요");
             Console.WriteLine("\n1. 공격\n2. 방어(성공 시 HP회복)");
@@ -54,41 +58,49 @@ namespace TestRPG.Scenes
 
         public override void Update()
         {
-            bool win = false;    // for debug
-                                 // TODO : 전투 진행
-            if (win)
-            {
-                game.ReturnScene();
-            }
-            else if (game.Player.CurHP <= 0)
-            {
-                game.ChangeScene(SceneType.GameOver);
-            }
-
-            if (monster.hp > 0)
+            // TODO : 전투 진행
+            if (monster.curHp > 0)
             {
                 if (input == ConsoleKey.D1)
                 {
-                    monster.hp -= player.Attack;
+                    monster.curHp -= player.Attack;
                     Console.WriteLine("공격에 성공하였습니다.");
                     Thread.Sleep(1000);
-                    
-                    if (monster.hp <= 0)
+
+                    if (monster.curHp <= 0)
                     {
                         win = true;
+                        game.ReturnScene();
+                        
+                        if (monster.name == "가논")
+                        {
+                            game.ChangeScene(SceneType.GameOver);
+                        }
                     }
                 }
 
                 else if (input == ConsoleKey.D2)
                 {
-                    monster.attack -= player.CurHP;
+                    player.CurHP -= monster.attack;
                     Console.WriteLine("방어에 실패하였습니다.");
                     Thread.Sleep(1000);
+                    
+                    if (game.Player.CurHP <= 0)
+                    {
+                        Console.WriteLine("전투에서 패배하였습니다...");
+                        Thread.Sleep(1000);
+                        RestHealth();
+
+                        game.ReturnScene();
+                    }
                 }
             }
+        }
 
-
-
+        public void RestHealth()
+        {
+            player.CurHP = player.MaxHP;
+            monster.curHp = monster.maxHp;
         }
     }
 }
