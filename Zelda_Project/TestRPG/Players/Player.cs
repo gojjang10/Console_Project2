@@ -11,6 +11,7 @@ namespace TestRPG.Players
 {
     public abstract class Player
     {
+        public bool cant = false;
 
         protected int curHP;
         public int CurHP { get { return curHP; } }

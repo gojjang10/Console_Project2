@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
 using TestRPG.GameObjects;
+using TestRPG.Players;
 
 namespace TestRPG.Scenes
 {
     public class VillageScene : Scene
     {
-
+        public Player player;
         public VillageScene(Game game) : base(game)
         {
             map = new bool[,]

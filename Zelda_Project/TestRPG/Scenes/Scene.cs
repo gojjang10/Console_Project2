@@ -109,11 +109,13 @@ namespace TestRPG.Scenes
                     playerPos.Y == gameObject.pos.Y)
                 {
                     gameObject.Interaction(game.Player);
+                    
                     if (gameObject.removeWhenInteract)
                     {
                         gameObjects.Remove(gameObject);
                     }
                     return;
+
                 }
             }
         }

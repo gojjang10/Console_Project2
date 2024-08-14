@@ -19,6 +19,16 @@ namespace TestRPG.GameObjects
 
         public override void Interaction(Player player)
         {
+            if(destination == SceneType.Dungeon)
+            {
+                if (player.cant == false)
+                {
+                    Console.Clear();
+                    Console.Write("위험해보인다. 나를 지킬 수 있는 것을 찾아보자.");
+                    Thread.Sleep(2000);
+                    return;
+                }
+            }
             game.ChangeScene(destination);
         }
     }

@@ -49,7 +49,16 @@ namespace TestRPG.Scenes
         {
             // TODO : 전투 진행
 
-            game.ChangeScene(SceneType.Village);
+            bool win = true;    // for debug
+            if (win) // (monster.hp <= 0)
+            {
+                game.ReturnScene();
+            }
+            else // if (game.Player.CurHP <= 0)
+            {
+                game.ChangeScene(SceneType.GameOver);
+            }
+
         }
     }
 }
