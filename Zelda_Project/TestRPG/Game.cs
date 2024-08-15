@@ -73,7 +73,7 @@ namespace TestRPG
 
             scenes[(int)SceneType.Village] = new VillageScene(this);
             scenes[(int)SceneType.Cave] = new CaveScene(this);
-            scenes[(int)SceneType.Dungeon] = new DungeonScene(this);
+            scenes[(int)SceneType.Dungeon3] = new DungeonScene3(this);
             scenes[(int)SceneType.Battle] = new BattleScene(this);
             scenes[(int)SceneType.GameOver] = new GameOver(this);
 

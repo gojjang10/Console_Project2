@@ -21,7 +21,7 @@ namespace TestRPG.Players
         protected int attack = 30;
         public int Attack { get { return attack; } }
 
-        protected int defense;
+        protected int defense = 20;
         public int Defense { get { return defense; } }
 
         protected int gold;

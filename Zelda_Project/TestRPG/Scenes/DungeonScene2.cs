@@ -5,17 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestRPG.GameObjects;
-using TestRPG.Players;
+using TestRPG.Monsters;
 
 namespace TestRPG.Scenes
 {
-    public class CaveScene : Scene
+    public class DungeonScene2 : Scene
     {
-        
-        public CaveScene(Game game) : base(game)
+        public DungeonScene2(Game game) : base(game)
         {
             map = new bool[,]
-{
+           {
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false, false, false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
@@ -23,36 +22,32 @@ namespace TestRPG.Scenes
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true, false, false,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true, false,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true, false,  true,  true, false, false, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true, false, false, false,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
-};
+           };
 
-            playerPos = new Point(12, 13);
+            playerPos = new Point(1, 1);
             gameObjects = new List<GameObject>();
 
             Place village = new Place(this);
-            village.pos = new Point(13, 13);
+            village.pos = new Point(1, 1);
             village.simbol = '●';
             village.color = ConsoleColor.Yellow;
             village.destination = SceneType.Village;
 
             gameObjects.Add(village);
 
-            Item sword = new Item(this);
-            sword.name = "마스터 소드";
-            sword.pos = new Point(7, 2);
-            sword.simbol = '↓';
-            sword.color = ConsoleColor.Yellow;
-            sword.removeWhenInteract = true;
+            Monster ganon = MonsterFactory.AddMonster(this, "가논");
+            ganon.pos = new Point(6, 6);
+            ganon.removeWhenInteract = false;
 
-            gameObjects.Add(sword);
-
+            gameObjects.Add(ganon);
         }
 
         public override void Enter()

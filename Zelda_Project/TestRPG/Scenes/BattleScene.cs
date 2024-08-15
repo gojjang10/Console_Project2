@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestRPG.Monsters;
+﻿using TestRPG.Monsters;
 using TestRPG.Players;
 
 namespace TestRPG.Scenes
@@ -12,7 +7,7 @@ namespace TestRPG.Scenes
     {
         private Monster monster;
         private Player player;
-        bool win = false;
+        Random randomValue = new Random();
 
         public BattleScene(Game game) : base(game)
         {
@@ -35,7 +30,7 @@ namespace TestRPG.Scenes
 
         public override void Exit()
         {
-            
+
         }
 
         public override void Input()
@@ -50,7 +45,10 @@ namespace TestRPG.Scenes
             // TODO : 전투 상황 출력
             Console.Clear();
             Console.WriteLine($"현재 링크의 HP : {player.CurHP}");
+            Console.WriteLine($"현재 링크의 공격력 : {player.Attack}");
+            Console.WriteLine();
             Console.WriteLine($"현재 {monster.name}의 HP : {monster.curHp}");
+            Console.WriteLine($"현재 {monster.name}의 공격력 : {monster.attack}");
 
             Console.WriteLine("\n행동을 고르세요");
             Console.WriteLine("\n1. 공격\n2. 방어(성공 시 HP회복)");
@@ -59,42 +57,7 @@ namespace TestRPG.Scenes
         public override void Update()
         {
             // TODO : 전투 진행
-            if (monster.curHp > 0)
-            {
-                if (input == ConsoleKey.D1)
-                {
-                    monster.curHp -= player.Attack;
-                    Console.WriteLine("공격에 성공하였습니다.");
-                    Thread.Sleep(1000);
-
-                    if (monster.curHp <= 0)
-                    {
-                        win = true;
-                        game.ReturnScene();
-                        
-                        if (monster.name == "가논")
-                        {
-                            game.ChangeScene(SceneType.GameOver);
-                        }
-                    }
-                }
-
-                else if (input == ConsoleKey.D2)
-                {
-                    player.CurHP -= monster.attack;
-                    Console.WriteLine("방어에 실패하였습니다.");
-                    Thread.Sleep(1000);
-                    
-                    if (game.Player.CurHP <= 0)
-                    {
-                        Console.WriteLine("전투에서 패배하였습니다...");
-                        Thread.Sleep(1000);
-                        RestHealth();
-
-                        game.ReturnScene();
-                    }
-                }
-            }
+            Fight();
         }
 
         public void RestHealth()
@@ -102,5 +65,122 @@ namespace TestRPG.Scenes
             player.CurHP = player.MaxHP;
             monster.curHp = monster.maxHp;
         }
+
+        public void Fight()
+        {
+            int playerRandom;
+            int monsterRandom;
+
+            playerRandom = randomValue.Next(0, 4);
+            monsterRandom = randomValue.Next(0, 4);
+
+            if (input == ConsoleKey.D1)
+            //  공격 선택시
+            {
+                if (playerRandom > monsterRandom)
+                {
+                    monster.curHp -= player.Attack;
+                    Console.WriteLine();
+                    Console.WriteLine("공격에 성공하였습니다.");
+                    Thread.Sleep(1000);
+                   
+                    if (monster.curHp <= 0)
+                    {
+                        Win();
+                    }
+                }
+                else if (playerRandom < monsterRandom)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("공격에 실패하였습니다.\n");
+                    Thread.Sleep(1000);
+                    Console.WriteLine($"{monster.name} 이/가 공격해옵니다.");
+                    Thread.Sleep(1000);
+                    player.CurHP -= monster.attack;
+                    
+                    if (player.CurHP <= 0)
+                    {
+                        Lose();
+                    }
+                }
+
+                else if (playerRandom == monsterRandom)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("서로가 공격하여 공격이 상쇄되었습니다.");
+                    Thread.Sleep(1000);
+                }
+
+            }
+
+            else if (input == ConsoleKey.D2)
+            //  방어 선택시
+            {
+                if(playerRandom > monsterRandom)
+                {
+                    player.CurHP += player.Defense;
+                    Console.WriteLine();
+                    Console.WriteLine("방어에 성공하였습니다.");
+                    Thread.Sleep(1000);
+
+                }
+
+                else if(playerRandom < monsterRandom)
+                {
+                    player.CurHP -= monster.attack;
+                    Console.WriteLine();
+                    Console.WriteLine("방어에 실패하였습니다.");
+                    Thread.Sleep(1000);
+
+                    if (player.CurHP <= 0)
+                    {
+                        Lose();
+                    }
+                }
+
+                else if(playerRandom == monsterRandom)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"{monster.name}의 공격이 빗나갔습니다.");
+                    Thread.Sleep(1000);
+                }
+
+
+            }
+
+            else
+            //  잘못 입력시
+            {
+                Console.WriteLine();
+                Console.WriteLine("잘못 입력하였습니다. 알맞은 숫자를 입력해주세요.");
+                Thread.Sleep(1000);
+            }
+
+        }
+
+
+        public void Win()
+        {
+            RestHealth();
+            game.ReturnScene();
+
+            if (monster.name == "가논")
+            {
+                game.ChangeScene(SceneType.GameOver);
+            }
+        }
+
+        public void Lose()
+        {
+
+            Console.Clear();
+            Console.WriteLine("전투에서 패배하였습니다...");
+            Thread.Sleep(1000);
+            RestHealth();
+
+            game.ReturnScene();
+
+        }
     }
 }
+

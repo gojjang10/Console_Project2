@@ -12,17 +12,19 @@ namespace TestRPG.Scenes
         {
             map = new bool[,]
             {
-                { false, false, false, false, false, false, false, false },
-                { false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false },
-                { false, false, false, false, false, false, false, false },
+                { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false, false, false,  true,  true,  true,  true,  true,  true, false, false,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true, false,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true, false,  true,  true, false, false, false,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false, false,  true,  true,  true,  true,  true,  true,  true,  true,  true, false, false,  true, false },
+                { false, false,  true,  true,  true,  true,  true,  true,  true, false, false, false,  true,  true, false },
+                { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
             };
 
-            playerPos = new Point(2, 1);
+            playerPos = new Point(7, 8);
             gameObjects = new List<GameObject>();
 
             Place cave = new Place(this);
@@ -32,10 +34,10 @@ namespace TestRPG.Scenes
             cave.destination = SceneType.Cave;
 
             Place dungeon = new Place(this);
-            dungeon.pos = new Point(5, 1);
+            dungeon.pos = new Point(13, 8);
             dungeon.color = ConsoleColor.Red;
             dungeon.simbol = '●';
-            dungeon.destination = SceneType.Dungeon;
+            dungeon.destination = SceneType.Dungeon3;
 
             gameObjects.Add(cave);
             gameObjects.Add(dungeon);

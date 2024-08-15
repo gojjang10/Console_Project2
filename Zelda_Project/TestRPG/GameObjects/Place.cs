@@ -19,7 +19,7 @@ namespace TestRPG.GameObjects
 
         public override void Interaction(Player player)
         {
-            if(destination == SceneType.Dungeon)
+            if(destination == SceneType.Dungeon3)
             {
                 if (game.inventory.IsHaveItem("마스터 소드"))
                 {
@@ -33,6 +33,7 @@ namespace TestRPG.GameObjects
                     return;
                 }
             }
+
             game.ChangeScene(destination);
         }
     }
