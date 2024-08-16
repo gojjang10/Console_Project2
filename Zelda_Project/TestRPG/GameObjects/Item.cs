@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using TestRPG.Monsters;
 using TestRPG.Players;
 using TestRPG.Scenes;
 
@@ -61,6 +63,24 @@ namespace TestRPG.GameObjects
 
                 game.inventory.AddItem(this);
             }
+        }
+    }
+
+    public static class ItemFactory
+    {
+        public static Item AddItem(Scene scene, string name)
+        {
+            if (name == "마스터 소드")
+            {
+                return new Item(scene)
+                {
+                    name = "마스터 소드",
+                    color = ConsoleColor.Yellow,
+                    simbol = '↓',
+                    removeWhenInteract = true
+                };
+            }
+            return null;
         }
     }
 }

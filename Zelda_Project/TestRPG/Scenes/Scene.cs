@@ -14,6 +14,7 @@ namespace TestRPG.Scenes
     {
         public bool[,] map;
         public Point playerPos;
+        public Point prePos;
 
         public List<GameObject> gameObjects;
 
@@ -76,23 +77,27 @@ namespace TestRPG.Scenes
         protected void Move()
         {
             Point next = playerPos;
-
+           
             switch (input)
             {
                 case ConsoleKey.W:
                 case ConsoleKey.UpArrow:
+  
                     next = new Point(playerPos.X, playerPos.Y - 1);
                     break;
                 case ConsoleKey.S:
                 case ConsoleKey.DownArrow:
+                   
                     next = new Point(playerPos.X, playerPos.Y + 1);
                     break;
                 case ConsoleKey.A:
                 case ConsoleKey.LeftArrow:
+                   
                     next = new Point(playerPos.X - 1, playerPos.Y);
                     break;
                 case ConsoleKey.D:
                 case ConsoleKey.RightArrow:
+                  
                     next = new Point(playerPos.X + 1, playerPos.Y);
                     break;
             }

@@ -24,7 +24,7 @@ namespace TestRPG.Scenes
         public override void Enter()
         {
             Console.Clear();
-            Console.WriteLine($"{monster.name} 이/가 나타났다!!!");
+            Console.WriteLine($"{monster.name} 이/가 나타났다!");
             Thread.Sleep(2000);
         }
 
@@ -44,14 +44,17 @@ namespace TestRPG.Scenes
         {
             // TODO : 전투 상황 출력
             Console.Clear();
+            Console.WriteLine("=======================================================================");
             Console.WriteLine($"현재 링크의 HP : {player.CurHP}");
             Console.WriteLine($"현재 링크의 공격력 : {player.Attack}");
-            Console.WriteLine();
+            Console.WriteLine($"현재 링크의 방어력 : {player.Defense}");
+            Console.WriteLine("=======================================================================");
             Console.WriteLine($"현재 {monster.name}의 HP : {monster.curHp}");
             Console.WriteLine($"현재 {monster.name}의 공격력 : {monster.attack}");
+            Console.WriteLine("=======================================================================");
 
             Console.WriteLine("\n행동을 고르세요");
-            Console.WriteLine("\n1. 공격\n2. 방어(성공 시 HP회복)");
+            Console.WriteLine("\n1. 공격\n2. 방어(성공 시 방어력만큼 HP회복)");
         }
 
         public override void Update()
@@ -71,8 +74,8 @@ namespace TestRPG.Scenes
             int playerRandom;
             int monsterRandom;
 
-            playerRandom = randomValue.Next(0, 4);
-            monsterRandom = randomValue.Next(0, 4);
+            playerRandom = randomValue.Next(0, 3);  
+            monsterRandom = randomValue.Next(0, 3);
 
             if (input == ConsoleKey.D1)
             //  공격 선택시
@@ -162,8 +165,9 @@ namespace TestRPG.Scenes
         public void Win()
         {
             RestHealth();
+            monster.RemoveMonster(monster);
             game.ReturnScene();
-
+           
             if (monster.name == "가논")
             {
                 game.ChangeScene(SceneType.GameOver);
@@ -177,6 +181,7 @@ namespace TestRPG.Scenes
             Console.WriteLine("전투에서 패배하였습니다...");
             Thread.Sleep(1000);
             RestHealth();
+
 
             game.ReturnScene();
 

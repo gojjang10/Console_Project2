@@ -17,22 +17,22 @@ namespace TestRPG.Scenes
             map = new bool[,]
 {
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+                { false,  true,  true,  true, false,  true,  true,  true,  true,  true, false,  true,  true,  true, false },
+                { false, false, false,  true, false,  true,  true, false,  true,  true, false,  true,  true,  true, false },
+                { false,  true,  true,  true, false,  true, false,  true, false,  true, false,  true,  true,  true, false },
+                { false,  true,  true,  true, false,  true,  true,  true,  true,  true, false,  true,  true,  true, false },
+                { false,  true,  true,  true, false,  true,  true,  true,  true,  true, false,  true,  true,  true, false },
+                { false,  true,  true,  true, false,  true,  true,  true,  true,  true, false,  true,  true,  true, false },
+                { false,  true,  true,  true, false, false, false,  true, false, false, false,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false, false, false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false, false, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true, false, false,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true, false,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true, false,  true,  true, false, false, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true, false, false, false,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false,  true,  true, false },
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
 };
-
+            
             playerPos = new Point(12, 13);
             gameObjects = new List<GameObject>();
 
@@ -44,12 +44,8 @@ namespace TestRPG.Scenes
 
             gameObjects.Add(village);
 
-            Item sword = new Item(this);
-            sword.name = "마스터 소드";
-            sword.pos = new Point(7, 2);
-            sword.simbol = '↓';
-            sword.color = ConsoleColor.Yellow;
-            sword.removeWhenInteract = true;
+            Item sword = ItemFactory.AddItem(this, "마스터 소드");
+            sword.pos = new Point(7, 3);
 
             gameObjects.Add(sword);
 

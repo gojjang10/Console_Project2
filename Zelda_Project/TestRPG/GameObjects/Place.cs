@@ -19,7 +19,7 @@ namespace TestRPG.GameObjects
 
         public override void Interaction(Player player)
         {
-            if(destination == SceneType.Dungeon3)
+            if(destination == SceneType.Dungeon1)
             {
                 if (game.inventory.IsHaveItem("마스터 소드"))
                 {

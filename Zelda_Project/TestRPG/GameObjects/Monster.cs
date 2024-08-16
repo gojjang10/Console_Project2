@@ -27,6 +27,11 @@ namespace TestRPG.Monsters
             game.StartBattle(this);
         }
 
+        public void RemoveMonster(Monster monster)
+        {
+            scene.gameObjects.Remove(monster);
+        }
+
     }
 
     public static class MonsterFactory
@@ -43,7 +48,7 @@ namespace TestRPG.Monsters
                     attack = 30,
                     defense = 20,
                     color = ConsoleColor.Red,
-                    simbol = '◈'
+                    simbol = '◈',
                 };
             }
 
@@ -57,7 +62,7 @@ namespace TestRPG.Monsters
                     attack = 5,
                     defense = 5,
                     color = ConsoleColor.Red,
-                    simbol = '●'
+                    simbol = '♠',
                 };
             }
 
@@ -71,7 +76,7 @@ namespace TestRPG.Monsters
                     attack = 15,
                     defense = 10,
                     color = ConsoleColor.Red,
-                    simbol = '♠'
+                    simbol = '▣',
                 };
             }
             return null;

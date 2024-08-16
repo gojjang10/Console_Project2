@@ -46,12 +46,14 @@ namespace TestRPG
         {
             curScene.Exit();
             curScene = prevScene;
+            curScene.playerPos = prevScene.prePos;
+
             curScene.Enter();
         }
 
         public void StartBattle(Monster monster)
         {
-            prevScene = curScene;
+            prevScene = curScene;  
             curScene.Exit();
             curScene = scenes[(int)SceneType.Battle];
             BattleScene battleScene = (BattleScene)curScene;
@@ -73,6 +75,8 @@ namespace TestRPG
 
             scenes[(int)SceneType.Village] = new VillageScene(this);
             scenes[(int)SceneType.Cave] = new CaveScene(this);
+            scenes[(int)SceneType.Dungeon1] = new DungeonScene1(this);
+            scenes[(int)SceneType.Dungeon2] = new DungeonScene2(this);
             scenes[(int)SceneType.Dungeon3] = new DungeonScene3(this);
             scenes[(int)SceneType.Battle] = new BattleScene(this);
             scenes[(int)SceneType.GameOver] = new GameOver(this);

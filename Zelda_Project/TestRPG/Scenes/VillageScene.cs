@@ -14,13 +14,13 @@ namespace TestRPG.Scenes
             {
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false, false, false,  true,  true,  true,  true,  true,  true, false, false,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false,  true,  true,  true,  true,  true,  true, false,  true,  true,  true,  true,  true,  true, false },
+                { false,  true,  true,  true, false,  true,  true,  true,  true, false, false,  true,  true,  true, false },
+                { false,  true,  true,  true, false,  true,  true,  true,  true,  true, false,  true,  true,  true, false },
+                { false,  true,  true,  true,  true,  true,  true, false,  true,  true,  true,  true, false,  true, false },
                 { false,  true,  true, false,  true,  true, false, false, false,  true,  true,  true,  true,  true, false },
                 { false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
-                { false, false,  true,  true,  true,  true,  true,  true,  true,  true,  true, false, false,  true, false },
-                { false, false,  true,  true,  true,  true,  true,  true,  true, false, false, false,  true,  true, false },
+                { false, false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false,  true, false },
+                { false, false,  true,  true,  true,  true,  true,  true,  true,  true,  true, false,  true,  true, false },
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
             };
 
@@ -37,7 +37,7 @@ namespace TestRPG.Scenes
             dungeon.pos = new Point(13, 8);
             dungeon.color = ConsoleColor.Red;
             dungeon.simbol = '●';
-            dungeon.destination = SceneType.Dungeon3;
+            dungeon.destination = SceneType.Dungeon1;
 
             gameObjects.Add(cave);
             gameObjects.Add(dungeon);
