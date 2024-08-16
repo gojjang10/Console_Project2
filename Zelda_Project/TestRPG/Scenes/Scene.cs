@@ -74,6 +74,15 @@ namespace TestRPG.Scenes
             Console.ResetColor();
         }
 
+        protected void Goinventory()
+        {
+            if(input == ConsoleKey.I)
+            {
+                game.ChangeScene(SceneType.Inventory);
+            }
+        }
+
+
         protected void Move()
         {
             Point next = playerPos;

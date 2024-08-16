@@ -41,6 +41,11 @@ namespace TestRPG.Scenes
 
             gameObjects.Add(cave);
             gameObjects.Add(dungeon);
+
+            Item potion = ItemFactory.AddItem(this, "물약");
+            potion.pos = new Point(12, 2);
+
+            gameObjects.Add(potion);
         }
 
         public override void Enter()
@@ -69,6 +74,8 @@ namespace TestRPG.Scenes
 
         public override void Update()
         {
+            prePos = playerPos;
+            Goinventory();
             Move();
             Interaction();
         }

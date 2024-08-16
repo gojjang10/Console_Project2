@@ -77,6 +77,8 @@ namespace TestRPG.Scenes
 
         public override void Update()
         {
+            prePos = playerPos;
+            Goinventory();
             Move();
             Interaction();
         }

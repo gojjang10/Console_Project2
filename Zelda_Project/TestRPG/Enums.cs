@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestRPG
 {
-    public enum SceneType { Title, Village, Cave, Dungeon1, Dungeon2, Dungeon3, Battle, GameOver, Size }
+    public enum SceneType { Title, Village, Cave, Inventory, Dungeon1, Dungeon2, Dungeon3, Battle, GameOver, Size }
 
     
 }

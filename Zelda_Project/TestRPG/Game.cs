@@ -38,6 +38,7 @@ namespace TestRPG
 
         public void ChangeScene(SceneType sceneType)
         {
+            prevScene = curScene;
             curScene.Exit();
             curScene = scenes[(int)sceneType];
             curScene.Enter();
@@ -72,6 +73,7 @@ namespace TestRPG
 
             scenes = new Scene[(int)SceneType.Size];
             scenes[(int)SceneType.Title] = new TitleScene(this);
+            scenes[(int)SceneType.Inventory] = new InventoryScene(this);
 
             scenes[(int)SceneType.Village] = new VillageScene(this);
             scenes[(int)SceneType.Cave] = new CaveScene(this);

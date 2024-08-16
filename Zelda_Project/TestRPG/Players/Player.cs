@@ -30,14 +30,12 @@ namespace TestRPG.Players
 
         public void ShowInfo()
         {
-            Console.SetCursorPosition(0, 20);
+            Console.SetCursorPosition(0, 4);
             Console.WriteLine("==========================================");
 
-            Console.WriteLine($" 체력 : {curHP,+3} / {maxHP}  공격 : {attack,-3} / 방어 : {defense,-3}");
-            Console.WriteLine($" 골드 : {gold,+5} G");
+            Console.WriteLine($" 체력 : {curHP,+3} /  공격 : {attack,-3} / 방어 : {defense,-3}");
             Console.WriteLine("==========================================");
             Console.WriteLine();
-            Console.SetCursorPosition(0, 0);
         }
     }
 }

@@ -63,6 +63,15 @@ namespace TestRPG.GameObjects
 
                 game.inventory.AddItem(this);
             }
+
+            if ( this.name == "물약")
+            {
+                Console.Clear();
+                Console.WriteLine("물약을 획득했다!");
+                Thread.Sleep(1000);
+
+                game.inventory.AddItem(this);
+            }
         }
     }
 
@@ -77,6 +86,17 @@ namespace TestRPG.GameObjects
                     name = "마스터 소드",
                     color = ConsoleColor.Yellow,
                     simbol = '↓',
+                    removeWhenInteract = true
+                };
+            }
+
+            if (name == "물약")
+            {
+                return new Item(scene)
+                {
+                    name = "물약",
+                    color = ConsoleColor.Blue,
+                    simbol = '★',
                     removeWhenInteract = true
                 };
             }
